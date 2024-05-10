@@ -1,0 +1,21 @@
+@import "/styles/variables.scss";
+
+.pk-riders {
+  width: 320px;
+  height: max-content;
+  max-height: 90vh;
+  overflow: auto;
+  min-height: 170px;
+  border: 1px solid $gray-800;
+  border-radius: 12px;
+  padding: 8px;
+  display: grid;
+  grid-template-columns: 100%;
+  justify-items: center;
+  gap: 12px;
+  background-color: $gray-900;
+
+  &__container {
+    padding: 20px;
+  }
+}

@@ -1,0 +1,60 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+:root {
+  --max-width: 1100px;
+  --border-radius: 12px;
+  --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
+    "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
+    "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: Montserrat, system-ui, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+    sans-serif;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+  padding: 0 !important;
+}
+
+ul {
+  padding: 0 !important;
+}
+
+@import "./variables.scss";
+@import "./fonts/recoleta.scss";
+@import "./fonts/montserrat.scss";
+
+html,
+body {
+  background-color: #fff;
+}
+
+*:not(img) {
+  transition: fill, fill-color, stroke, stroke-color, color, background,
+    background-color 280ms;
+}
+
+path {
+  transition: fill, fill-color, stroke, stroke-color, color, background,
+    background-color 280ms;
+}
+.ant-select-selector {
+  border: none !important;
+}
