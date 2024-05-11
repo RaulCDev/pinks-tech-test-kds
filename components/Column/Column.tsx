@@ -24,9 +24,12 @@ export default function Column(props: ColumnProps) {
             </span>
           </div>
           <div>
-            {order.items.map((item) => (
-              <div></div>
-            ))}
+          {order.items.map((item) => (
+            <div key={item.id}>
+              <h4>{item.name}</h4>
+              <img src={item.image} alt={item.name} />
+            </div>
+          ))}
           </div>
         </div>
       ))}
