@@ -4,6 +4,7 @@
   width: 100dvw;
   height: 100dvh;
   background-color: $white;
+  color: $black;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -26,5 +27,11 @@
     grid-template-columns: auto 360px;
     gap: 20px;
     background-color: $gray-1000;
+  }
+}
+@media (prefers-color-scheme: dark) {
+  .pk-layout {
+    background-color: $gray-200;
+    color: $white;
   }
 }

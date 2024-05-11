@@ -1,11 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import "/styles/variables.scss";
 
 :root {
+  --background-color: $white;
+  --text-color: $black;
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono: ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono",
     "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro",
     "Fira Mono", "Droid Sans Mono", "Courier New", monospace;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background-color: $black;
+    --text-color: $white;
+  }
 }
 
 * {
@@ -42,9 +52,7 @@ ul {
 @import "./fonts/montserrat.scss";
 
 html,
-body {
-  background-color: #fff;
-}
+body {}
 
 *:not(img) {
   transition: fill, fill-color, stroke, stroke-color, color, background,

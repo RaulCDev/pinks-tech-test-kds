@@ -36,3 +36,24 @@
     background-color: #f5f5f5;
   }
 }
+
+@media (prefers-color-scheme: dark) {
+  .pk-column .pk-card {
+    background-color: $gray-200;
+    border-color: $gray-900;
+    color: $white;
+  }
+
+  .pk-card:hover {
+    transform: scale(0.99);
+    background-color: $gray-300;
+  }
+  .pk-card:active {
+    transform: scale(0.98);
+    background-color: $gray-400;
+    -webkit-transform: scale(0.98);
+    -moz-transform: scale(0.98);
+    -ms-transform: scale(0.98);
+    -o-transform: scale(0.98);
+}
+}

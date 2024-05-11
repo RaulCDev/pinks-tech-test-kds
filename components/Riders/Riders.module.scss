@@ -14,8 +14,15 @@
   justify-items: center;
   gap: 12px;
   background-color: $gray-900;
-
+  color: $black;
   &__container {
     padding: 20px;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .pk-riders {
+    background-color: $gray-200;
+    color: $white;
   }
 }
