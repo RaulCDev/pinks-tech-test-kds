@@ -21,6 +21,10 @@
 }
 
 @media (prefers-color-scheme: dark) {
+  .pk-riders__container{
+    background-color: $gray-200;
+    color: $white;
+  }
   .pk-riders {
     background-color: $gray-200;
     color: $white;
