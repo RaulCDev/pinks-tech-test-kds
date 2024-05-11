@@ -1,3 +1,5 @@
+@import "/styles/variables.scss";
+
 @keyframes animation {
   0% {
     transform: scaleX(-1) translateX(4000px);
@@ -35,6 +37,7 @@
     opacity: 0;
     border-radius: 10px 10px 10px 0px;
     background-color: #f9cc01;
+    color: $black;
     padding: 10px;
     animation: appear 300ms 1000ms forwards;
   }

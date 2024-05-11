@@ -1,1 +1,5 @@
 -Dark/Light themes depending on the sistem preference
+
+-"Entregado" column added
+-List of avaible items created
+-Randomize items for "ordenes"

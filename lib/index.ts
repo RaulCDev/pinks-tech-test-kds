@@ -1,6 +1,6 @@
 import { Order } from "@/dtos/Order.dto";
 import { EventEmitter } from "events";
-import { getRandomId, getRandomInterval } from "./utils";
+import { getRandomId, getRandomInterval, getRandomItems } from "./utils";
 
 export class OrderOrchestrator {
   private interval: NodeJS.Timeout | undefined;
@@ -16,7 +16,7 @@ export class OrderOrchestrator {
       this.emit({
         id: getRandomId(),
         state: "PENDING",
-        items: [],
+        items: getRandomItems(),
       });
       this.maxOrders--;
       if (this.maxOrders <= 0) {
