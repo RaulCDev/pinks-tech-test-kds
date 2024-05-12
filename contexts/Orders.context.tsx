@@ -1,4 +1,4 @@
-import { Order } from "@/dtos/Order.dto";
+import { Order, StateType } from "@/dtos/Order.dto";
 import { OrderOrchestrator } from "@/lib";
 import {
   ReactNode,
@@ -11,6 +11,7 @@ import {
 export type OrdersContextProps = {
   orders: Array<Order>;
   pickup: (order: Order) => void;
+  updateOrderState: (order: Order, state: StateType) => void;
 };
 
 export const OrdersContext = createContext<OrdersContextProps>(
@@ -24,6 +25,22 @@ export type OrdersProviderProps = {
 
 export function OrdersProvider(props: OrdersProviderProps) {
   const [orders, setOrders] = useState<Array<Order>>([]);
+
+  const updateOrderState = (order: Order, state: StateType) => {
+    const ref = orders.find((target) => target.id === order.id);
+    if (!ref) {
+      return;
+    }
+
+    const updatedOrders = orders.map((target) => {
+      // Si elemento de la iteracion es el mismo que hemos clickado, le seteamos el status.
+      if (target.id === order.id) {
+        target.state = state;
+      }
+      return target;
+    })
+    setOrders(updatedOrders);
+  }
 
   useEffect(() => {
     const orderOrchestrator = new OrderOrchestrator();
@@ -42,6 +59,7 @@ export function OrdersProvider(props: OrdersProviderProps) {
   const context = {
     orders,
     pickup,
+    updateOrderState,
   };
 
   return (
