@@ -54,7 +54,6 @@ export function OrdersProvider(props: OrdersProviderProps) {
     }
     return false;
   };
-  
 
   const updateOrderState = (order: Order, state: StateType) => {
     const ref = orders.find((target) => target.id === order.id);
