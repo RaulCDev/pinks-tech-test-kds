@@ -38,30 +38,23 @@ export function RidersProvider(props: RidersProviderProps) {
           ...prev,
           {
             orderWanted: order.id,
-            pickup: () => pickup(order.id),
+            pickup: () => {
+              if (pickup(order) && riders) {
+                console.log(riders);
+                setRiders((prevRiders) => {
+                  // Filtrar el array de riders para excluir el rider que queremos eliminar
+                  const updatedRiders = prevRiders.filter((rider) => rider.orderWanted !== order.id);
+                  return updatedRiders; // Devolver el nuevo array de riders actualizado sin el rider eliminado
+                });
+              }
+            }
           },
         ]);
       }, getRandomInterval(4_000, 10_000));
     }
   }, [orders]);
 
-  const removeRider = (orderId: string) => {
-    // Obtener la orden correspondiente del array de orders
-    const order = orders.find((order) => order.id === orderId);
-    // Verificar si la orden existe y está en estado "Listo"
-    if (order && order.state === StateType.ready) {
-      // Eliminar el rider correspondiente del array de riders
-      setRiders((prev) => prev.filter((rider) => rider.orderWanted !== orderId));
-      alert("Se elimino?");
-    } else {
-      // Enviar una alerta o manejar el caso en el que la orden no está en estado "Listo"
-      alert("La orden no está lista para ser entregada");
-    }
-  };
-
-
-
-  const context = { riders, removeRider };
+  const context = { riders };
   return (
     <RidersContext.Provider value={context}>
       {props.children}

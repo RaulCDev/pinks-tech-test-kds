@@ -36,21 +36,25 @@ export function OrdersProvider(props: OrdersProviderProps) {
     });
   }, []);
 
-  const pickup = (orderId: string) => {
-    const updatedOrders = orders.map((target) => {
-      // Verificar si riders está definido antes de filtrarlo
-      if (removeRider && orderId && target.state === StateType.ready) {
-        alert("Voy!")
-        removeRider(orderId); // Llamamos a removeRider con el ID de la orden
-      }
-      // Si elemento de la iteración es el mismo que hemos clickeado y esta en "Listo", le seteamos el estado.
-      if (target.id === orderId && target.state === StateType.ready) {
-        target.state = StateType.delivered;
-      }
-      return target;
-    });
-    setOrders(updatedOrders);
+  const pickup = (order: Order): boolean => {
+    console.log(order);
+    if (order.state === StateType.ready) {
+      setOrders((prevOrders) => {
+        // Utilizar prevOrders, que representa el estado anterior de orders
+        const updatedOrders = prevOrders.map((target) => {
+          // Si el elemento de la iteración es el mismo que hemos clickeado, le seteamos el estado.
+          if (target.id === order.id) {
+            return { ...target, state: StateType.delivered }; // Devolver un nuevo objeto con el estado actualizado
+          }
+          return target;
+        });
+        return updatedOrders; // Devolver el nuevo array de orders actualizado
+      });
+      return true;
+    }
+    return false;
   };
+  
 
   const updateOrderState = (order: Order, state: StateType) => {
     const ref = orders.find((target) => target.id === order.id);
