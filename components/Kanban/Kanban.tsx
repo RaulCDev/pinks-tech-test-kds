@@ -14,22 +14,26 @@ export default function Kanban() {
         onClick={(order) =>
           updateOrderState(order, StateType.inProgress)
         }
+        showToggleButton={false}
       />
       <Column title="En preparación⏳"
         orders={orders.filter((i) => i.state === "IN_PROGRESS")}
         onClick={(order) =>
           updateOrderState(order, StateType.ready)
         }
+        showToggleButton={false}
       />
       <Column title="Listo🔊"
         orders={orders.filter((i) => i.state === "READY")}
         onClick={(order) => {
           alert("Recojan el pedido " + order.id);
         }}
+        showToggleButton={false}
       />
       <Column title="Entregado✅"
         orders={orders.filter((i) => i.state === "DELIVERED")}
         onClick={() => alert("La orden ya ha sido entregada")}
+        showToggleButton={true}
       />
     </section>
   );
