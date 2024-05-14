@@ -1,6 +1,10 @@
 import { useState } from "react";
 import s from "./Column.module.scss";
 import { Order } from "@/dtos/Order.dto";
+import { ArrowDown } from "@/bases/ArrowDown";
+import { ArrowRight } from "@/bases/ArrowRight";
+
+
 
 export type ColumnProps = {
   orders: Array<Order>;
@@ -19,7 +23,7 @@ export default function Column(props: ColumnProps) {
           {props.title} ({props.orders.length})
           {props.showToggleButton && (
             <button onClick={() => setShowOrders(!showOrders)}>
-              {showOrders ? "Ocultar órdenes" : "Mostrar órdenes"}
+              {showOrders ? <ArrowDown /> : <ArrowRight />}
             </button>
           )}
         </h3>
