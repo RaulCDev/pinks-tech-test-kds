@@ -11,7 +11,7 @@ export default function Column(props: ColumnProps) {
   return (
     <div className={s["pk-column"]}>
       <div className={s["pk-column__title"]}>
-        <h3>{props.title}</h3>
+        <h3>{props.title} ({props.orders.length})</h3>
       </div>
       {props.orders.map((order) => (
         <div

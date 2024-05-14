@@ -26,7 +26,6 @@ export type OrdersProviderProps = {
 
 export function OrdersProvider(props: OrdersProviderProps) {
   const [ orders, setOrders ] = useState<Array<Order>>([]);
-  const { removeRider } = useRiders();
 
   useEffect(() => {
     const orderOrchestrator = new OrderOrchestrator();
@@ -40,15 +39,13 @@ export function OrdersProvider(props: OrdersProviderProps) {
     console.log(order);
     if (order.state === StateType.ready) {
       setOrders((prevOrders) => {
-        // Utilizar prevOrders, que representa el estado anterior de orders
         const updatedOrders = prevOrders.map((target) => {
-          // Si el elemento de la iteración es el mismo que hemos clickeado, le seteamos el estado.
           if (target.id === order.id) {
-            return { ...target, state: StateType.delivered }; // Devolver un nuevo objeto con el estado actualizado
+            return { ...target, state: StateType.delivered };
           }
           return target;
         });
-        return updatedOrders; // Devolver el nuevo array de orders actualizado
+        return updatedOrders;
       });
       return true;
     }
@@ -62,7 +59,6 @@ export function OrdersProvider(props: OrdersProviderProps) {
     }
 
     const updatedOrders = orders.map((target) => {
-      // Si elemento de la iteracion es el mismo que hemos clickado, le seteamos el status.
       if (target.id === order.id) {
         target.state = state;
       }

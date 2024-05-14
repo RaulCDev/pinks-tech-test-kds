@@ -25,7 +25,6 @@ export default function Kanban() {
         orders={orders.filter((i) => i.state === "READY")}
         onClick={(order) => {
           alert("Recojan el pedido " + order.id);
-          updateOrderState(order, StateType.delivered);
         }}
       />
       <Column title="Entregado✅"

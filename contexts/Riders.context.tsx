@@ -12,7 +12,6 @@ import { StateType } from "@/dtos/Order.dto"
 
 export type RidersContextProps = {
   riders: Array<Rider>;
-  removeRider: (orderId: string) => void;
 };
 
 export const RidersContext = createContext<RidersContextProps>(
@@ -42,9 +41,8 @@ export function RidersProvider(props: RidersProviderProps) {
               if (pickup(order) && riders) {
                 console.log(riders);
                 setRiders((prevRiders) => {
-                  // Filtrar el array de riders para excluir el rider que queremos eliminar
                   const updatedRiders = prevRiders.filter((rider) => rider.orderWanted !== order.id);
-                  return updatedRiders; // Devolver el nuevo array de riders actualizado sin el rider eliminado
+                  return updatedRiders;
                 });
               }
             }
