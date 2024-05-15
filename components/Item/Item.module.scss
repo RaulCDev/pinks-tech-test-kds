@@ -1,0 +1,17 @@
+.container {
+  display: flex;
+  flex-direction: column;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+}
+
+.imageContainer {
+  margin-top: 8px;
+}
+
+.arrow {
+  fill: #ffffff;
+}

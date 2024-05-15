@@ -1,7 +1,7 @@
 @import "/styles/variables.scss";
 
 .pk-column {
-  width: 320px;
+  width: 350px;
   height: max-content;
   max-height: 90vh;
   overflow: auto;
@@ -23,26 +23,7 @@
   }
 }
 
-.pk-card {
-  width: 100%;
-  background-color: #fff;
-  border: 1px solid $gray-1000;
-  border-radius: 12px;
-  height: auto;
-  padding: 12px;
-  cursor: pointer;
-  &:hover {
-    transform: scale(0.99);
-    background-color: #f5f5f5;
-  }
-}
-
 @media (prefers-color-scheme: dark) {
-   .pk-card {
-    background-color: $gray-200;
-    border: 3px solid $gray-700;
-    color: $white;
-  }
   .pk-column{
     background-color: $gray-1000;
     &__title {
@@ -51,13 +32,5 @@
         color: $black;
       }
     }
-  }
-  .pk-card:hover {
-    transform: scale(0.99);
-    background-color: $gray-300;
-  }
-  .pk-card:active {
-    transform: scale(0.98);
-    background-color: $gray-400;
   }
 }

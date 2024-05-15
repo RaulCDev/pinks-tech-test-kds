@@ -3,8 +3,7 @@ import s from "./Column.module.scss";
 import { Order } from "@/dtos/Order.dto";
 import { ArrowDown } from "@/bases/ArrowDown";
 import { ArrowRight } from "@/bases/ArrowRight";
-
-
+import OrderComponent from '../Order/Order';
 
 export type ColumnProps = {
   orders: Array<Order>;
@@ -13,7 +12,7 @@ export type ColumnProps = {
   showToggleButton?: boolean;
 };
 
-export default function Column(props: ColumnProps) {
+export default function Column( props : ColumnProps) {
   const [showOrders, setShowOrders] = useState(!props.showToggleButton);
 
   return (
@@ -30,24 +29,10 @@ export default function Column(props: ColumnProps) {
       </div>
       {showOrders &&
         props.orders.map((order) => (
-          <div
-            onClick={() => props.onClick && props.onClick(order)}
-            className={s["pk-card"]}
-          >
-            <div>
-              <span>
-                orden: <b>{order.id}</b>
-              </span>
-            </div>
-            <div>
-              {order.items.map((item) => (
-                <div key={item.id}>
-                  <h4>{item.name}</h4>
-                  <img src={item.image} alt={item.name} />
-                </div>
-              ))}
-            </div>
-          </div>
+          <OrderComponent
+          order={order}
+          onClick={props.onClick}
+        />
         ))}
     </div>
   );
