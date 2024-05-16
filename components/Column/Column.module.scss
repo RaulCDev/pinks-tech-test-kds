@@ -21,6 +21,20 @@
       color: $gray-200;
     }
   }
+  &__arrows {
+    border: none;
+    background: transparent;
+    padding: 0;
+    cursor: pointer;
+    width: 1.5em;
+    height: 1.5em;
+    margin-right: 6px;
+  }
+
+  &__arrows:hover {
+    border: 1px solid #ccc;
+    background-color: #d2d2d2;
+  }
 }
 
 @media (prefers-color-scheme: dark) {

@@ -20,8 +20,8 @@ export default function ItemComponent({ item }: ItemProps) {
   return (
     <div className={s["container"]}>
       <div className={s["content"]}>
-        <button onClick={handleClick}>
-          {showImage ? <ArrowDown /> : <ArrowRight />}
+        <button onClick={handleClick} className={s["arrows"]}>
+          {showImage ? <ArrowDown color="#ffffff"  /> : <ArrowRight color="#ffffff" />}
         </button>
         <h4>{item.name}</h4>
       </div>

@@ -12,6 +12,17 @@
   margin-top: 8px;
 }
 
-.arrow {
-  fill: #ffffff;
+.arrows {
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  width: 1.5em;
+  height: 1.5em;
+  margin-right: 6px;
+}
+
+.arrows:hover {
+  border: 1px solid #ccc;
+  background-color: #7b7b7b;
 }

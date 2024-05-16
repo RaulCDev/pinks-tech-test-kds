@@ -21,8 +21,8 @@ export default function Column( props : ColumnProps) {
         <h3>
           {props.title} ({props.orders.length})
           {props.showToggleButton && (
-            <button onClick={() => setShowOrders(!showOrders)}>
-              {showOrders ? <ArrowDown /> : <ArrowRight />}
+            <button  onClick={() => setShowOrders(!showOrders)} className={s["pk-column__arrows"]}>
+              {showOrders ? <ArrowDown  color="#000000"/> : <ArrowRight  color="#000000"/>}
             </button>
           )}
         </h3>
