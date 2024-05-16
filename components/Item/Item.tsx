@@ -29,7 +29,7 @@ export default function ItemComponent({ item }: ItemProps) {
         <button onClick={handleClick} className={s["arrows"]}>
           {showImage ? <ArrowDown color={isDarkMode ? '#ffffff' : '#000000'} /> : <ArrowRight color={isDarkMode ? '#ffffff' : '#000000'} />}
         </button>
-        <h4>{item.name}</h4>
+        <h4>{item.name}{item.price.amount}{item.price.currency}</h4>
       </div>
       <div className={s["imageContainer"]}>
         {showImage && <img src={item.image} alt={item.name} />}
