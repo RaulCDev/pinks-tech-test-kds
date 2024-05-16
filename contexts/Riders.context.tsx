@@ -43,6 +43,8 @@ export function RidersProvider(props: RidersProviderProps) {
                   const updatedRiders = prevRiders.filter((rider) => rider.orderWanted !== order.id);
                   return updatedRiders;
                 });
+              }else{
+                alert("El pedido todavia no esta listo");
               }
             }
           },
