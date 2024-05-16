@@ -1,6 +1,5 @@
 import { Order, StateType } from "@/dtos/Order.dto";
 import { OrderOrchestrator } from "@/lib";
-import { useRiders } from './Riders.context';
 import {
   ReactNode,
   createContext,

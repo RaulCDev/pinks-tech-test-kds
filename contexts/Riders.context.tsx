@@ -8,7 +8,6 @@ import {
 import { useOrders } from "./Orders.context";
 import { getRandomInterval } from "@/lib/utils";
 import { Rider } from "@/dtos/Rider.dto";
-import { StateType } from "@/dtos/Order.dto"
 
 export type RidersContextProps = {
   riders: Array<Rider>;
