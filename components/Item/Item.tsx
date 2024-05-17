@@ -18,7 +18,7 @@ export default function ItemComponent({ item }: ItemProps) {
   };
 
   useEffect(() => {
-    // Verificar si el dispositivo tiene configurado el modo oscuro
+    // Verificar si el dispositivo tiene configurado el modo oscuro para la flecha
     const prefersDarkMode = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
     setIsDarkMode(prefersDarkMode);
   }, []);
@@ -29,7 +29,7 @@ export default function ItemComponent({ item }: ItemProps) {
         <button onClick={handleClick} className={s["arrows"]}>
           {showImage ? <ArrowDown color={isDarkMode ? '#ffffff' : '#000000'} /> : <ArrowRight color={isDarkMode ? '#ffffff' : '#000000'} />}
         </button>
-        <h4>{item.name}{item.price.amount}{item.price.currency}</h4>
+        <h4>{item.name} - {item.price.amount}{item.price.currency}</h4>
       </div>
       <div className={s["imageContainer"]}>
         {showImage && <img src={item.image} alt={item.name} />}
